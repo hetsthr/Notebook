@@ -1,0 +1,55 @@
+# Matplotlib Tutorial
+
+## 1. matplotlib.pyplot.plot
+Plot x vs y as lines or markers
+
+Normal Syntax : plot([x], y, [formatting], data=None)
+                plot([x], y, [formatting], [x2], y2, [formatting]
+                
+                1. [formatting] a.k.a [fmt] --> is used to format/ style the plot in a short method, generally consists of color, marker or line style.
+                2. data --> it can be used to plot directly from an imported dataset such as a CSV file.
+
+# Importing required libraries
+import matplotlib.pyplot as plt
+import numpy as np
+
+### Creating Sample data to plot
+
+x = np.arange(0, 10, 1)
+print("x = ", x)
+y = 5 * np.random.randn(10)
+print("y = ", y)
+y2 = 3 * np.random.randn(10)
+print("y2 = ", y2)
+
+## Plotting Simple Graphs 
+
+# Simple Plot
+plt.plot(x, y)
+
+# Changing Color
+plt.plot(x, y, 'r')
+
+# Changing the Plotting Style
+plt.plot(x, y, 'o')
+
+# Plotting 2 values together with different formatting
+# It should be of the format : x, y, [fmt], x2, y2, [fmt] .. 
+plt.plot(x, y, 'r-', x, y2, 'b--')
+
+#### Some other formatting options:
+1. linewidth
+2. markersize
+3. markeredgecolor
+4. markerfacecolor
+5. markeredgewidth
+6. alpha (0 = Transparent, 1 = Opaque)
+
+# Example
+plt.plot(x, y2, 'go', markersize = 12, markeredgewidth = 2, markeredgecolor = 'b', markerfacecolor = 'c')
+plt.plot(x, y, 'r--', linewidth = 10, alpha = 0.5)
+# Keyword arguments take precedence when conflicting with [formatting] short notation (a.k.a fmt)
+
+# Defining the Axis Range
+plt.plot(x, y, 'r', linewidth = 2)
+plt.axis([0, 5, -10, 10])
